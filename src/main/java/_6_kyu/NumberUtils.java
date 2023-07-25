@@ -15,17 +15,9 @@ package _6_kyu;
 public class NumberUtils {
 
     public static boolean isNarcissistic(int number) {
-        int originalNumber = number;
-        int sum = 0;
-        int numDigits = (int) Math.log10(number) + 1;
-
-        while (number > 0) {
-            int digit = number % 10;
-            sum += Math.pow(digit, numDigits);
-            number /= 10;
-        }
-
-        return sum == originalNumber;
+        String str = String.valueOf(number);
+        int res = str.chars().map(c -> c - '0').map(digit -> (int) Math.pow(digit, str.length())).sum();
+        return res == number;
     }
 
 }
