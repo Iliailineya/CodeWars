@@ -13,9 +13,13 @@ Check to see if a string has the same amount of 'x's and 'o's. The method must r
 */
 public class ExesAndOhs {
     public static boolean getXO(String str) {
+        long countOfO = str.toLowerCase().chars().filter(ch -> ch == 'o').count();
+        long countOfX = str.toLowerCase().chars().filter(ch -> ch == 'x').count();
+        return countOfO == countOfX;
 
+//      Выше то что я придумал, ниже то, как бы я хотел решить
 
-
-        return true;
+//        return str.replaceAll("[^xX]", "").length() ==
+//                str.replaceAll("[^oO]", "").length();
     }
 }
