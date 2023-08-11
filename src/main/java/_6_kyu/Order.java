@@ -1,6 +1,7 @@
 package _6_kyu;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -18,18 +19,26 @@ Examples
 public class Order {
     public static String order(String str) {
         String[] words = str.split(" ");
-        List<String> result = new ArrayList<>(words.length);
-        for(String word : words){
-            int i =0;
+        List<String> result = new ArrayList<>(Collections.nCopies(words.length, ""));
+
+        for (String word : words) {
+            int i = 0;
             String[] tt = word.split("");
-            for(String letter : tt){
-                if (letter.equals("[1-9]")){
+            for (String letter : tt) {
+                if (letter.matches("[1-9]")) {
                     i = Integer.parseInt(letter);
+                    break;
                 }
             }
             result.set(i - 1, word);
         }
 
-        return result.toString();
+        return String.join(" ", result);
+    }
+
+    public static void main(String[] args) {
+        String input = "is2 Thi1s T4est 3a";
+        String ordered = order(input);
+        System.out.println(ordered);
     }
 }
