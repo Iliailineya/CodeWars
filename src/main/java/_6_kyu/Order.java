@@ -1,8 +1,7 @@
 package _6_kyu;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 Your task is to sort a given string. Each word in the string will contain a single number. This number is the position the word should have in the result.
@@ -18,22 +17,9 @@ Examples
 */
 public class Order {
     public static String order(String str) {
-        String[] words = str.split(" ");
-        List<String> result = new ArrayList<>(Collections.nCopies(words.length, ""));
-
-        for (String word : words) {
-            int i = 0;
-            String[] tt = word.split("");
-            for (String letter : tt) {
-                if (letter.matches("[1-9]")) {
-                    i = Integer.parseInt(letter);
-                    break;
-                }
-            }
-            result.set(i - 1, word);
-        }
-
-        return String.join(" ", result);
+        return Arrays.stream(str.split(" "))
+                .sorted(Comparator.comparing(s -> Integer.valueOf(s.replaceAll("\\D", ""))))
+                .collect(Collectors.joining(" "));
     }
 
     public static void main(String[] args) {
