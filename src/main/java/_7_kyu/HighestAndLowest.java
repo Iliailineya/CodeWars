@@ -15,9 +15,13 @@ In this little assignment you are given a string of space separated numbers, and
 */
 
 
+import java.util.Arrays;
+
 public class HighestAndLowest {
     public static String highAndLow(String numbers) {
 
-        return numbers;
+        int[] numArr = Arrays.stream(numbers.split(" ")).mapToInt(Integer::parseInt).toArray();
+
+        return (Arrays.stream(numArr).max().getAsInt() + " " + Arrays.stream(numArr).min().getAsInt());
     }
 }
