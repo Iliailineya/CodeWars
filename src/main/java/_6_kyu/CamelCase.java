@@ -14,23 +14,19 @@ Examples
 "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
  */
 public class CamelCase {
-
     public static void main(String[] args) {
-        String input = "hello_world_example";
+        String input = "the_Stealth_Warrior";
         String camelCaseString = toCamelCase(input);
         System.out.println(camelCaseString); // Output: helloWorldExample
     }
 
-//                .skip(1)
-    public static String toCamelCase(String s){
+    public static String toCamelCase(String s) {
         String[] words = s.split("[^A-Za-z]");
 
-        String firstWord = words.length > 0 ? words[0] : "";
-        String restOfWords = Arrays.stream(words)
+        return words[0] + Arrays.stream(words)
                 .skip(1)
                 .map(word -> Character.toUpperCase(word.charAt(0)) + word.substring(1))
                 .collect(Collectors.joining());
-
-        return firstWord + restOfWords;
     }
+
 }
