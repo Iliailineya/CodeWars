@@ -1,5 +1,7 @@
 package _6_kyu;
 
+import java.util.stream.IntStream;
+
 /*
 
 Build a pyramid-shaped tower, as an array/list of strings, given a positive integer number of floors. A tower block is represented with "*" character.
@@ -23,14 +25,13 @@ Build a pyramid-shaped tower, as an array/list of strings, given a positive inte
         ]
 */
 public class BuildTower {
-     public static String[] towerBuilder(int nFloors) {
-        String[] strings = new String[nFloors];
-        for (int i = 1; i <= nFloors; i++) {
-            StringBuilder s = new StringBuilder();
-            String gap = " ".repeat(Math.max(0, nFloors - i));
-            s.append(gap).append("*".repeat(Math.max(0, i * 2 - 1))).append(gap);
-            strings[i - 1] = s.toString();
-        }
-        return strings;
+    public static String[] towerBuilder(int nFloors) {
+        return IntStream.rangeClosed(1, nFloors)
+                .mapToObj(i -> {
+                    String gap = " ".repeat(Math.max(0, nFloors - i));
+                    String stars = "*".repeat(Math.max(0, i * 2 - 1));
+                    return gap + stars + gap;
+                })
+                .toArray(String[]::new);
     }
 }
