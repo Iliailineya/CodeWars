@@ -1,8 +1,8 @@
-import static org.junit.Assert.*;
-
 import _6_kyu.Order;
 import org.junit.Test;
-import static org.hamcrest.CoreMatchers.*;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
 
 public class OrderTest {
     @Test
