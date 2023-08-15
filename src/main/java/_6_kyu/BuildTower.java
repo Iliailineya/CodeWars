@@ -25,6 +25,15 @@ Build a pyramid-shaped tower, as an array/list of strings, given a positive inte
         ]
 */
 public class BuildTower {
+    public static void main(String[] args) {
+        int nFloors = 4;
+        String[] tower = towerBuilder(nFloors);
+
+        for (String row : tower) {
+            System.out.println(row);
+        }
+    }
+
     public static String[] towerBuilder(int nFloors) {
         return IntStream.rangeClosed(1, nFloors)
                 .mapToObj(i -> {
