@@ -6,24 +6,10 @@ public class RgbToHex {
     }
 
     public static String rgb(int r, int g, int b) {
-        String R = Integer.toHexString(border(r)).toUpperCase();
-        String G = Integer.toHexString(border(g)).toUpperCase();
-        String B = Integer.toHexString(border(b)).toUpperCase();
-        return ddd(R) + ddd(G) + ddd(B);
-    }
+        r = Math.min(255, Math.max(0, r));
+        g = Math.min(255, Math.max(0, g));
+        b = Math.min(255, Math.max(0, b));
 
-
-    public static int border(int num) {
-        if (num < 0) {
-            return 0;
-        }
-        return Math.min(num, 255);
+        return String.format("%02X%02X%02X", r, g, b);
     }
-    public static String ddd(String num) {
-        if (num.length() > 1) {
-            return num;
-        }
-        return ("0"+num);
-    }
-
 }
