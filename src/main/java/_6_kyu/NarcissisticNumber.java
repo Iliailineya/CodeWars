@@ -14,7 +14,14 @@ package _6_kyu;
 */
 
 
-public class NumberUtils {
+public class NarcissisticNumber {
+
+    public static void main(String[] args) {
+        int ii = '0';
+        System.out.println(ii);
+        System.out.println(isNarcissistic(153));
+        System.out.println(153);
+    }
 
     public static boolean isNarcissistic(int number) {
         String str = String.valueOf(number);
