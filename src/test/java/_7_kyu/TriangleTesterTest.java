@@ -1,4 +1,5 @@
-import _7_kyu.TriangleTester;
+package _7_kyu;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

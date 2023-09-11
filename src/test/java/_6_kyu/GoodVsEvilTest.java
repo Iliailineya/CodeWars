@@ -1,7 +1,8 @@
-import static org.junit.Assert.*;
+package _6_kyu;
 
-import _6_kyu.GoodVsEvil;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class GoodVsEvilTest {
     @Test

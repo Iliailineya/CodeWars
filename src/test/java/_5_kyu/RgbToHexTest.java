@@ -1,4 +1,5 @@
-import _5_kyu.RgbToHex;
+package _5_kyu;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,7 +1,9 @@
-import _6_kyu.BuildTower;
+package _6_kyu;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+
 public class BuildTowerTest {
     @Test
     public void basicTests() {

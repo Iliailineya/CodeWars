@@ -1,4 +1,5 @@
-import _6_kyu.CamelCase;
+package _6_kyu;
+
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
