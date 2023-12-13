@@ -19,7 +19,7 @@ public class RomanNumerals {
         String str = Integer.toString(n);
         StringBuilder result = new StringBuilder();
 
-        for (int i = 0; i < str.length(); i++) {
+        for (int i = str.length() - 1; i >= 0; i--) {
             int decimal = Character.getNumericValue(str.charAt(i));
             String replaceStr = replaceRomanLetter(states.get(decimal), i);
             result.append(replaceStr);
@@ -28,23 +28,19 @@ public class RomanNumerals {
     }
 
     public static String replaceRomanLetter(String input, int position) {
-        switch (position) {
-            case 0:
-                return input;
-            case 1:
-                return input.replace("I", "X").replace("V", "L").replace("X", "C");
-            case 2:
-                return input.replace("I", "C").replace("V", "D").replace("X", "M");
-            case 3:
-                return input.replace("I", "M");
-            default:
-                throw new IllegalArgumentException("Invalid position");
-        }
+        return switch (position) {
+            case 0 -> input;
+            case 1 -> input.replace("X", "C").replace("I", "X").replace("V", "L");
+            case 2 -> input.replace("I", "C").replace("V", "D").replace("X", "M");
+            case 3 -> input.replace("I", "M");
+            default -> throw new IllegalArgumentException("Invalid position");
+        };
+    }
+
+    public static int fromRoman(String romanNumeral) {
+        return 1;
     }
 }
 
 
 
-//    public static int fromRoman(String romanNumeral) {
-//        return 1;
-//    }
