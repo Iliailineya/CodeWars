@@ -5,6 +5,18 @@ import java.util.Map;
 
 public class RomanNumerals {
     public static String toRoman(int n) {
+        String str = Integer.toString(n);
+        StringBuilder result = new StringBuilder();
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            int decimal = Character.getNumericValue(str.charAt(i));
+            String replaceStr = replaceRomanLetter(states().get(decimal), i);
+            result.append(replaceStr);
+        }
+        return result.toString();
+    }
+
+    public static Map<Integer, String> states() {
         Map<Integer, String> states = new HashMap<>();
         states.put(1, "I");
         states.put(2, "II");
@@ -15,16 +27,7 @@ public class RomanNumerals {
         states.put(7, "VII");
         states.put(8, "VIII");
         states.put(9, "IX");
-
-        String str = Integer.toString(n);
-        StringBuilder result = new StringBuilder();
-
-        for (int i = str.length() - 1; i >= 0; i--) {
-            int decimal = Character.getNumericValue(str.charAt(i));
-            String replaceStr = replaceRomanLetter(states.get(decimal), i);
-            result.append(replaceStr);
-        }
-        return result.toString();
+        return states;
     }
 
     public static String replaceRomanLetter(String input, int position) {
